@@ -1,0 +1,131 @@
+main{
+    width: 30%;
+    height: 80vh;
+    margin: 1em;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--white);
+
+    font-size: 0.5em;
+    margin-bottom: 1em
+}
+
+
+.theme-selector {
+    display: flex;
+    align-items:flex-end;
+    justify-content:space-around;
+
+    width: 25%;
+    
+}
+
+.selector-name {
+    font-size: 0.3em;
+}
+
+.theme-number, .numbers{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 0.6em;
+
+    width: 100%;
+    height: 2vh;
+}
+
+.selector-area {
+    background-color: var(--veryDarkDesaturatedBlueToggle);
+
+    width: 5vw;
+    height: 3vh;
+    border-radius: 3vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /*Change to flex-end when choosing theme 2*/
+
+    padding: 0px 0.5vw;    
+}
+
+.selector-icon {
+    width: 2vh;
+    height: 2vh;
+    border-radius: 3vw;
+   
+    background-color: var(--darkRed);
+}
+
+.display {
+    background-color: var(--veryDarkDesaturatedBlueScreen);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin: 1em 0em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+
+    width: 100%;
+    height: 15vh;
+
+    color: var(--white); 
+}
+
+.numpad {
+
+    border-spacing: 2vw;
+
+    width: 100%;
+    height: 50vh;
+
+    background-color: var(--veryDarkDesaturatedBlueToggle);
+}
+
+td {
+    width: 3vw;
+    height: 2vw;
+    
+    text-align: center;
+    padding-top: 0.3em;   
+    font-size: 0.7em; 
+
+    border-radius: 0.5vh;
+    background-color: var(--grayishOrange);
+    box-shadow: 0px 2px 2px 1px var(--grayishOrange);
+
+    cursor: pointer;
+
+}
+
+td:hover {
+    background-color: var(--lightGrayishOrange);
+}
+
+.delete, .reset {
+    background-color: var(--desaturatedDdarkBlueShadow);
+    box-shadow: 0px 2px 2px 1px var(--desaturatedDdarkBlueShadow);
+    color: var(--white);
+}
+
+.delete, .reset:hover {
+    background-color: var(--desaturatedDarkBlueBackgroud);
+    box-shadow: var(--desaturatedDdarkBlueShadow);
+}
+
+.equal {
+    background-color: var(--darkRed);
+    box-shadow: 0px 2px 2px 1px var(--darkRed);
+    color: var(--white);
+}
+
+.equal:hover {
+    background-color: var(--red);
+}
