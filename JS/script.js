@@ -27,21 +27,48 @@ function listenKey () {
     document.addEventListener('click', function(e) {
         if (e.path[0].classList.contains('key')) {
 
+          
             if (Number(e.target.innerText) <= 9 || e.target.innerText == '.' || e.target.innerText == 'DEL') {
                 if (e.target.innerText == 'DEL') {
                     value = value.slice(0, value.length-1);
                     display.innerHTML= value;
                 } else {
+                    if (equation[1] == '=') {
+                        value = '';
+                        result = 0;
+                        equation= []; 
+                        console.log(equation);
+                    } 
                     value += e.target.innerText;
                     display.innerHTML= value;
                 }
             } else if(e.path[0].classList.contains('operator')) {
-                result += Number(value);
+                console.log('primeiro', equation)
+                if (equation.length == 2 && equation[1] == '=') {
+                    console.log('entrada equatio', equation)
+                        equation.pop();
+                        equation.push(e.target.innerText);
+                        console.log(equation);
+
+                } else {
+                        result += Number(value);
+                    console.log('result', result);
+                    console.log(value)
+                    equation.push(Number(value));
+                    equation.push(e.target.innerText);
+                    value = '';
+                    console.log(equation)
+                    console.log(result)
+                }
+                
+                /* result += Number(value);
+                console.log('result', result);
+                console.log(value)
                 equation.push(Number(value));
                 equation.push(e.target.innerText);
                 value = '';
                 console.log(equation)
-                console.log(result)
+                console.log(result) */
                 if (equation.length >3) {
                     console.log('equação inicial', equation )
                     if (equation[1] == '+') {
@@ -52,6 +79,7 @@ function listenKey () {
                         equation [1] = aux;
                         display.innerHTML= result;
                         console.log('soma', result)  
+                        console.log(value)
     
                     } else if (equation[1] == '-') {
                         result = equation[0]-equation[2];
@@ -85,11 +113,13 @@ function listenKey () {
                     console.log(equation)
                 }
                 if (equation.length == 2 && equation[1] == '='){
-                    let aux = equation[0];
+                    /* let aux = equation[0];
                     equation = [];
-                    equation[0] = aux;
+                    equation[0] = aux; */
                     display.innerHTML= result;
                     console.log('igual', equation)
+                    console.log(value)
+                    console.log(result)
                 }
                 
             } else if (e.path[0].classList.contains('reset')) {
@@ -98,9 +128,7 @@ function listenKey () {
                 equation= [];   
                 display.innerHTML = '';              
                 
-            } else if (e.path[0].classList.contains('equals')) {
-                display.innerHTML= result;
-            } else {
+            }  else {
                 display.innerHTML = 'error';
             }
             
