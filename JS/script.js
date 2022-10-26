@@ -19,7 +19,8 @@ const equalKey = document.getElementById('equals'); */
 const display = document.getElementById('display');
 const key = document.querySelectorAll('.key');
 let value = '';
-let result = '';
+let equation = [];
+let result = 0;
 
 
 function listenKey () {
@@ -32,28 +33,69 @@ function listenKey () {
                     display.innerHTML= value;
                 } else {
                     value += e.target.innerText;
-                    result = Number(value);
                     display.innerHTML= value;
                 }
             } else if(e.path[0].classList.contains('operator')) {
-                result = Number(value);
+                result += Number(value);
+                equation.push(Number(value));
+                equation.push(e.target.innerText);
                 value = '';
-                if (e.target.innerText == '+') {
-                    display.innerHTML= "+";
-
-                } else if (e.target.innerText == '-') {
-                    display.innerHTML= "-";
-
-                } else if (e.target.innerText == 'x') {
-                    display.innerHTML= "x";
+                console.log(equation)
+                console.log(result)
+                if (equation.length >3) {
+                    console.log('equação inicial', equation )
+                    if (equation[1] == '+') {
+                        result = equation[0]+equation[2];
+                        let aux = equation [3];
+                        equation = [];
+                        equation[0] = result;
+                        equation [1] = aux;
+                        display.innerHTML= result;
+                        console.log('soma', result)  
+    
+                    } else if (equation[1] == '-') {
+                        result = equation[0]-equation[2];
+                        let aux = equation [3];
+                        equation = [];
+                        equation[0] = result;
+                        equation [1] = aux;
+                        display.innerHTML= result;
+                        console.log('substração', result)
+    
+                    } else if (equation[1] == 'x') {
+                        result = equation[0]*equation[2];
+                        let aux = equation [3];
+                        equation = [];
+                        equation[0] = result;
+                        equation [1] = aux;
+                        display.innerHTML= result;
+                        console.log('multiplicação', result)
+                        
+                    } else if (equation[1] == '/') {
+                        result = equation[0]/equation[2];
+                        let aux = equation [3];
+                        equation = [];
+                        equation[0] = result;
+                        equation [1] = aux;
+                        display.innerHTML= result;
+                        console.log('divisão', result)
+                        
+                    }
                     
-                } else if (e.target.innerText == '/') {
-                    display.innerHTML= "/";
-                    
+                    console.log(equation)
                 }
+                if (equation.length == 2 && equation[1] == '='){
+                    let aux = equation[0];
+                    equation = [];
+                    equation[0] = aux;
+                    display.innerHTML= result;
+                    console.log('igual', equation)
+                }
+                
             } else if (e.path[0].classList.contains('reset')) {
                 value = '';
-                result = '';
+                result = 0;
+                equation= [];   
                 display.innerHTML = '';              
                 
             } else if (e.path[0].classList.contains('equals')) {
