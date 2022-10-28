@@ -1,3 +1,6 @@
+body{
+    background-color: var(--lightGray);
+}
 main{
     width: 30%;
     height: 80vh;
@@ -9,7 +12,7 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    color: var(--white);
+    color: var(--veryDarkGgrayishYellow);
 
     font-size: 0.5em;
     margin-bottom: 1em
@@ -40,7 +43,7 @@ header {
 }
 
 .selector-area {
-    background-color: var(--veryDarkDesaturatedBlueToggle);
+    background-color: var(--grayishRed);
 
     width: 5vw;
     height: 3vh;
@@ -58,7 +61,7 @@ header {
     height: 2vh;
     border-radius: 3vw;
    
-    background-color: var(--darkRed);
+    background-color: var(--orange);
 }
 
 .selector-icon:hover {
@@ -66,7 +69,7 @@ header {
 }
 
 .display {
-    background-color: var(--veryDarkDesaturatedBlueScreen);
+    background-color: var(--veryLightGray);
 
     display: flex;
     align-items: center;
@@ -89,7 +92,7 @@ header {
     width: 100%;
     height: 50vh;
 
-    background-color: var(--veryDarkDesaturatedBlueToggle);
+    background-color: var(--grayishRed);
 }
 
 td {
@@ -101,34 +104,34 @@ td {
     font-size: 0.7em; 
 
     border-radius: 0.5vh;
-    background-color: var(--grayishOrange);
-    box-shadow: 0px 2px 2px 1px var(--grayishOrange);
+    background-color: var(--darkGrayishOrange);
+    box-shadow: 0px 2px 2px 1px var(--darkGrayishOrange);
 
     cursor: pointer;
 
 }
 
 td:hover {
-    background-color: var(--lightGrayishOrange);
+    background-color: var(--lightGrayishYellow);
 }
 
 .delete, .reset {
-    background-color: var(--desaturatedDdarkBlueShadow);
-    box-shadow: 0px 2px 2px 1px var(--desaturatedDdarkBlueShadow);
+    background-color: var(--darkModerateCyan);
+    box-shadow: 0px 2px 2px 1px var(--veryDarkCyan);
     color: var(--white);
 }
 
 .delete, .reset:hover {
-    background-color: var(--desaturatedDarkBlueBackgroud);
-    box-shadow: var(--desaturatedDdarkBlueShadow);
+    background-color: var(--darkModerateCyan);
+    box-shadow: var(--veryDarkCyan);
 }
 
 .equal {
-    background-color: var(--darkRed);
-    box-shadow: 0px 2px 2px 1px var(--darkRed);
+    background-color: var(--darkOrange);
+    box-shadow: 0px 2px 2px 1px var(--darkOrange);
     color: var(--white);
 }
 
 .equal:hover {
-    background-color: var(--red);
+    background-color: var(--orange);
 }

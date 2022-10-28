@@ -1,9 +1,12 @@
 const display = document.getElementById('display');
 const key = document.querySelectorAll('.key');
+const selector = document.getElementById('selector');
+var theme = document.getElementsByTagName('link')[5];
+console.log(theme)
+
 let value = '';
 let equation = [];
 let result = 0;
-
 
 function calculator () {
     document.addEventListener('click', function(e) {
@@ -94,5 +97,27 @@ function calculator () {
     })
 }   
 
+function changeTheme () {
+    document.addEventListener('click', function (e) {
+        if (e.path[0].classList.contains('selector-icon')) {
+            selector.style.justifyContent = "flex-end";
+
+
+            console.log(theme.href)
+            if ( theme.getAttribute('href') == ('./CSS/style.css')) {
+                console.log('aqui')
+                
+                theme.setAttribute('href', './CSS/theme2styles.css');    
+            }
+            else {
+                selector.style.justifyContent = "flex-start";
+                theme.setAttribute('href', './CSS/style.css');    
+            }
+
+        }
+        
+    })
+}
 
 calculator()
+changeTheme()
